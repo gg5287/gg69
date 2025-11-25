@@ -7,14 +7,32 @@ body {
     margin: 0;
     padding: 0;
     color: #333; /* 預設內容字體顏色為中性深灰 */
-
-    /* ***** 背景圖片設定 START ***** */
-    background-image: url('background.png'); /* 替換成您的圖片路徑 */
+    
+    /* 通用背景屬性 */
     background-size: cover; /* 讓圖片覆蓋整個視窗 */
     background-position: center center; /* 圖片居中顯示 */
     background-attachment: fixed; /* 圖片固定不動，捲動頁面時圖片位置不變 */
     background-color: #f4f7f6; /* 如果圖片加載失敗，顯示的備用顏色 */
-    /* ***** 背景圖片設定 END ***** */
+}
+
+
+/* *** 預設/其他頁面背景 (酒店大廳圖) *** */
+body:not(.lounge-background) {
+    background-image: url('chair.jpg'); 
+}
+body.contact {
+    background-image: url('contact.jpg'); /* 請確認您的紫色沙發圖片檔名 */
+}
+body.booking {
+    background-image: url('beach.png'); /* 請確認您的紫色沙發圖片檔名 */
+}
+body.faq {
+    background-image: url('bed.jpg'); /* 請確認您的紫色沙發圖片檔名 */
+}
+
+/* *** schedule.html 專屬背景 (紫色沙發圖) *** */
+body.lounge-background {
+    background-image: url('main.jpg'); /* 請確認您的紫色沙發圖片檔名 */
 }
 
 header {
@@ -52,6 +70,39 @@ nav a:hover {
 nav a.active {
     background-color: rgba(68, 68, 68, 0.9); /* 活躍狀態改為更深的半透明灰色 */
     font-weight: bold;
+}
+
+/* style.css */
+
+/* --- 導航列 Logo 按鈕樣式 --- */
+
+/* 1. 針對包含 Logo 的按鈕容器 (a 標籤) 調整 */
+nav a.logo-button {
+    /* 移除文字按鈕原有的 padding，讓圖片決定大小 */
+    padding: 5px 10px; 
+    /* 讓 Logo 按鈕在視覺上更突出 */
+    background-color: rgba(255, 255, 255, 0.9); 
+    border-radius: 10px;
+}
+
+nav a.logo-button:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+/* 2. 針對 Logo 圖片本身設定大小 */
+.nav-logo {
+    height: 70px; /* 設定 Logo 圖片高度，您可以根據需求調整 */
+    width: auto;
+    vertical-align: middle; /* 讓圖片與文字按鈕垂直對齊 */
+}
+
+/* 確保活躍狀態的 Logo 按鈕背景色依然突出 */
+nav a.logo-button.active {
+    background-color: #e67e22; /* 使用一個更顯眼的顏色，例如暖橘色 */
+}
+
+nav a.logo-button.active:hover {
+    background-color: #d35400; 
 }
 
 main {
