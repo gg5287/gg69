@@ -1,0 +1,353 @@
+/* style.css */
+
+/* --- 1. 基本設定與通用樣式 --- */
+body {
+    font-family: '微軟正黑體', 'Microsoft JhengHei', Arial, sans-serif;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f7f6;
+    color: #333;
+}
+
+header {
+    background-color: #4CAF50; /* 主綠色 */
+    color: white;
+    padding: 20px 0;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin-top: 0;
+    margin-bottom: 10px;
+    font-size: 2em;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    padding: 10px 15px;
+    margin: 0 3px;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+    display: inline-block;
+}
+
+nav a:hover {
+    background-color: #45a049;
+}
+
+nav a.active {
+    background-color: #388e3c; /* 活躍狀態深綠色 */
+    font-weight: bold;
+}
+
+main {
+    max-width: 1200px;
+    margin: 20px auto;
+    padding: 0 20px;
+}
+
+/* --- 頁尾樣式更新 (包含聯絡資訊) --- */
+footer {
+    padding: 20px;
+    margin-top: 40px;
+    background-color: #333;
+    color: white;
+    text-align: center;
+}
+
+.footer-contact {
+    max-width: 800px;
+    margin: 0 auto 15px auto;
+    padding: 15px;
+    border-bottom: 1px solid #555;
+}
+
+.info-item.signature p {
+    font-size: 1.2em;
+    font-weight: bold;
+    color: #ffd700; /* 亮黃色強調 */
+    margin: 0 0 10px 0;
+}
+
+.contact-info {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px 30px;
+}
+
+.contact-item {
+    font-size: 1em;
+    display: flex;
+    align-items: center;
+}
+
+.contact-item .label {
+    font-weight: bold;
+    margin-right: 5px;
+    color: #ccc;
+}
+
+.contact-item .value {
+    color: #87ceeb; /* 淺藍色連結 */
+    text-decoration: none;
+    transition: color 0.3s;
+}
+
+.contact-item .value:hover {
+    color: #fff;
+    text-decoration: underline;
+}
+
+.copyright {
+    margin: 10px 0 0 0;
+    font-size: 0.9em;
+    color: #aaa;
+}
+
+/* --- 2. index.html (人員列表) 樣式 --- */
+#personnel-list {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 20px;
+    padding: 20px 0;
+}
+
+.person-card {
+    background-color: white;
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    transition: transform 0.2s;
+}
+
+.person-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+}
+
+.person-card h2 {
+    color: #4CAF50; /* 綠色標題 */
+    margin-top: 0;
+    border-bottom: 2px solid #eee;
+    padding-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.price {
+    font-size: 1.1em;
+    font-weight: bold;
+    color: #e67e22; /* 橘色強調價格 */
+    margin-bottom: 10px;
+}
+
+.price span {
+    font-size: 1.2em;
+    color: #c0392b; /* 紅色強調金額 */
+}
+
+.schedule-list {
+    list-style: none;
+    padding: 0;
+}
+
+.schedule-list li {
+    padding: 5px 0;
+    border-bottom: 1px dashed #f0f0f0;
+    font-size: 0.95em;
+}
+
+.schedule-list li:last-child {
+    border-bottom: none;
+}
+
+/* --- 3. schedule.html (課表) 樣式 --- */
+#today-title {
+    text-align: center;
+    color: #2c3e50;
+    margin-bottom: 20px;
+}
+
+#schedule-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 20px 0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    background-color: white;
+}
+
+#schedule-table th, #schedule-table td {
+    border: 1px solid #ddd;
+    padding: 12px 15px;
+    text-align: left;
+}
+
+#schedule-table thead th {
+    background-color: #3498db; /* 藍色表頭 */
+    color: white;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+#schedule-table tbody tr:nth-child(even) {
+    background-color: #f9f9f9;
+}
+
+#schedule-table tbody tr:hover {
+    background-color: #f1f1f1;
+}
+
+/* 隱藏訊息 */
+.hidden {
+    display: none;
+}
+
+#no-schedule-message {
+    text-align: center;
+    font-size: 1.2em;
+    color: #e74c3c;
+    padding: 30px;
+    border: 1px dashed #e74c3c;
+    background-color: #fdeeeed0;
+    border-radius: 5px;
+}
+
+
+/* --- 4. 新增內容分頁樣式 --- */
+
+.content-page {
+    background-color: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05);
+}
+
+.content-page h2 {
+    color: #4CAF50; /* 綠色主標題 */
+    border-bottom: 3px solid #eee;
+    padding-bottom: 15px;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+.content-page h3 {
+    color: #3498db; /* 藍色小標題 */
+    margin-top: 30px;
+    font-size: 1.4em;
+}
+
+.content-page section {
+    margin-bottom: 30px;
+    padding: 15px;
+    border-left: 5px solid #4CAF50; /* 綠色裝飾線 */
+    background-color: #fcfcfc;
+}
+
+.highlight-box {
+    border: 2px solid #e67e22 !important; /* 橘色邊框強調重要區塊 */
+    background-color: #fff8ee !important;
+    padding: 20px;
+}
+
+.highlight-box h3 {
+    color: #e67e22; /* 橘色強調標題 */
+}
+
+.faq-list {
+    margin-top: 20px;
+}
+
+.faq-item {
+    border-left: none !important;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 15px !important;
+    padding: 20px;
+    background-color: white !important;
+}
+
+.faq-item h3 {
+    color: #4CAF50; /* 綠色標題 */
+    margin-top: 0;
+    margin-bottom: 10px;
+}
+
+.note {
+    font-style: italic;
+    font-weight: bold;
+    color: #c0392b; /* 紅色提醒文字 */
+    padding: 10px;
+    background-color: #fdd;
+    border-radius: 4px;
+    display: block;
+    margin-top: 10px;
+}
+
+/* --- 5. RWD 響應式設計優化 --- */
+@media (max-width: 768px) {
+    header h1 {
+        font-size: 1.5em;
+    }
+
+    nav a {
+        padding: 8px 10px;
+        margin: 5px 3px;
+        font-size: 0.9em;
+    }
+
+    /* 針對手機導航列，讓其換行更美觀 */
+    nav {
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 5px;
+        padding: 0 10px;
+    }
+
+    main {
+        padding: 0 10px;
+    }
+    
+    /* 讓人員列表在小螢幕上變成單欄 */
+    #personnel-list {
+        grid-template-columns: 1fr;
+    }
+
+    /* 讓表格在小螢幕上可以滾動 */
+    #schedule-table {
+        display: block;
+        overflow-x: auto;
+        white-space: nowrap;
+    }
+    
+    /* 讓內容區塊的內邊距適當縮小 */
+    .content-page {
+        padding: 20px 15px;
+    }
+
+    .content-page section {
+        padding: 10px;
+    }
+
+    /* 頁尾聯絡資訊在手機上垂直堆疊 */
+    .contact-info {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .footer-contact {
+        padding: 10px;
+    }
+
+    .info-item.signature p {
+        font-size: 1.1em;
+    }
+}

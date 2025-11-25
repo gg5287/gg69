@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>本日課表 - 預約資訊</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>📅 本日課表</h1>
+        <nav>
+            <a href="index.html">為何選擇我們？</a>
+            <a href="booking.html">如何約到優質紅牌？</a>
+            <a href="faq.html">常見問題</a>
+            <a href="contact.html">預約/現場接待</a>
+            <a href="schedule.html" class="active">本日課表</a>
+        </nav>
+    </header>
+
+    <main>
+        <h2 id="today-title"></h2>
+        <table id="schedule-table">
+            <thead>
+                <tr>
+                    <th>姓名</th>
+                    <th>價格</th>
+                    <th>時段</th>
+                </tr>
+            </thead>
+            <tbody>
+                </tbody>
+        </table>
+        <p id="no-schedule-message" class="hidden">今日無人排班。</p>
+    </main>
+
+    <footer>
+        <div class="footer-contact">
+            <div class="info-item signature">
+                <p>台妹舒壓放鬆詢問加</p>
+            </div>
+            <div class="contact-info">
+                <div class="contact-item">
+                    <span class="label">Line:</span>
+                    <a href="https://line.me/ti/p/~jokey98" target="_blank" class="value">jokey98</a>
+                </div>
+                <div class="contact-item">
+                    <span class="label">Telegram:</span>
+                    <a href="https://t.me/jokey998" target="_blank" class="value">jokey998</a>
+                </div>
+                <div class="contact-item">
+                    <span class="label">Telegram班表頻道:</span>
+                    <a href="https://t.me/+GlJY15nX6lY3NmJl" target="_blank" class="value">波波會館🇹🇼本土台灣娛樂優選</a>
+                </div>
+            </div>
+        </div>
+        <p class="copyright">&copy; 2025 波波舒壓會館. 專業舒壓幹部為您把關。</p>
+    </footer>
+
+    <script src="script.js"></script>
+    <script>
+        // 渲染 schedule.html (本日課表頁面)
+        document.addEventListener('DOMContentLoaded', () => {
+            const tableBody = document.querySelector('#schedule-table tbody');
+            const todayTitle = document.getElementById('today-title');
+            const noScheduleMessage = document.getElementById('no-schedule-message');
+            
+            // 取得今天的中文星期名稱 (此函數在 script.js 中)
+            const today = getTodayChineseDay(); 
+            todayTitle.textContent = `(${today}) 有班人員列表`;
+
+            // 過濾出今天有排班的人員 (personnelData 變數在 script.js 中)
+            const todaySchedule = personnelData.filter(person => person.schedule[today]);
+
+            if (todaySchedule.length === 0) {
+                noScheduleMessage.classList.remove('hidden');
+            } else {
+                // 遍歷今天有班的人員，並添加到表格
+                todaySchedule.forEach(person => {
+                    const row = tableBody.insertRow();
+                    
+                    const nameCell = row.insertCell();
+                    nameCell.textContent = person.name;
+
+                    const priceCell = row.insertCell();
+                    priceCell.textContent = person.price || 'N/A'; // 處理無價格情況
+
+                    const timeCell = row.insertCell();
+                    timeCell.textContent = person.schedule[today];
+                });
+            }
+        });
+    </script>
+</body>
+</html>
